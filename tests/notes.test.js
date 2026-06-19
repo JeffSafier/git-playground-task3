@@ -2,6 +2,7 @@ const test = require("node:test");
 const assert = require("node:assert");
 
 const { matches } = require("../lib/store");
+const { count } = require("../lib/store");
 
 const notes = [
   { id: 1, text: "buy milk" },
@@ -13,6 +14,10 @@ test("search finds every note that contains the term", () => {
   const result = matches(notes, "milk");
   assert.strictEqual(result.length, 2);
 });
+
+test("Count the number of notes", () => {
+  assert.strict(count(), "You have 3 notes")
+})
 
 test("search finds a single containing note", () => {
   const result = matches(notes, "bank");

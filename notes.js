@@ -16,6 +16,11 @@ function main() {
       console.log(`Added note #${note.id}: ${note.text}`);
       break;
     }
+    case "count": {
+      const num = store.count();
+      console.log("You have " + num + " notes.")
+      return;
+    }
     case "list": {
       const notes = store.all();
       if (notes.length === 0) {
